@@ -5,6 +5,7 @@ import Summary2 from './Summary2';
 import Navbar from './Navbar';
 import States from './States';
 import Footer from './Footer';
+import whatsapp from './whatsapp.svg';
 
 class Home extends Component{
 
@@ -53,6 +54,10 @@ class Home extends Component{
 				</tbody>
     		</table>
     		<Footer/>
+    		<div className="fixed-bottom" style={{textAlign:"right"}}>
+    			<a href="https://web.whatsapp.com/send?phone=918290277481"> <img src={whatsapp} alt="Whatsapp"/>
+				</a>
+    		</div>
 	    </div>
 	);
 }
