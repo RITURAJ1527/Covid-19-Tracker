@@ -1,10 +1,17 @@
 import React, {Component } from 'react';
 import axios from 'axios';
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile
+} from "react-device-detect";
 
 import Summary from './Summary';
 import Countries from './Countries';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import whatsapp from './whatsapp.svg';
 
 class Details extends Component{
 
@@ -33,6 +40,8 @@ class Details extends Component{
   		</div>
   	);
   }
+  var isMobile = /iPhone|iPod|Android/i.test(navigator.userAgent);
+  console.log(isMobile);
   return (
   	<div>
   		<Navbar/>
@@ -54,6 +63,17 @@ class Details extends Component{
 			</tbody>
     	</table>
     	<Footer/>
+    	<BrowserView>
+	    	<div className="fixed-bottom" style={{textAlign:"right"}}>
+	    		<a href="https://web.whatsapp.com/send?phone=918290277481"> <img src={whatsapp} alt="Whatsapp"/>
+				</a>
+    		</div>
+	    </BrowserView>
+	   	<MobileView>
+	    	<div className="fixed-bottom" style={{textAlign:"right"}}>
+	    		<a href="https://wa.me/918290277481?text=Hi There"> <img src={whatsapp} alt="Whatsapp"/></a>
+	   		</div>
+	   	</MobileView>
     </div>
   );
 }

@@ -1,5 +1,11 @@
 import React, {Component } from 'react';
 import axios from 'axios';
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile
+} from "react-device-detect";
 
 import Summary2 from './Summary2';
 import Navbar from './Navbar';
@@ -54,10 +60,19 @@ class Home extends Component{
 				</tbody>
     		</table>
     		<Footer/>
-    		<div className="fixed-bottom" style={{textAlign:"right"}}>
-    			<a href="https://web.whatsapp.com/send?phone=918290277481"> <img src={whatsapp} alt="Whatsapp"/>
-				</a>
-    		</div>
+    		<BrowserView>
+	    		<div className="fixed-bottom" style={{textAlign:"right"}}>
+	    			<a href="https://web.whatsapp.com/send?phone=918290277481"> <img src={whatsapp} alt="Whatsapp"/>
+					</a>
+	    		</div>
+	    	</BrowserView>
+	    	<MobileView>
+	    		<div className="fixed-bottom" style={{textAlign:"right"}}>
+	    			<a href="https://wa.me/918290277481?text=Hi There"> <img src={whatsapp} alt="Whatsapp"/>
+					</a>
+	    		</div>
+	    	</MobileView>
+
 	    </div>
 	);
 }
