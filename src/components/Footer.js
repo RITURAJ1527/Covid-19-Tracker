@@ -20,8 +20,6 @@ class Footer extends Component{
       </div>  
       <div className="row">
         <div className="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-            <button type="button" className="btn btn-primary btn-rounded btn-icon"><a href="#"> <i class="fab fa-facebook-square"></i></a></button> 
-            <button type="button" className="btn btn-dark btn-rounded btn-icon"><a href="#"> <i class="fa fa-envelope-o"></i></a> </button> 
             <button type="button" className="btn btn-danger btn-rounded btn-icon"><a href="https://www.linkedin.com/in/ritu-raj-1v527/"> <i class="fab fa-linkedin"></i></a> </button> 
             <button type="button" className="btn btn-info btn-rounded btn-icon"><a href="https://github.com/RITURAJ1527"> <i class="fab fa-github-square"></i></a> </button> 
         </div>
