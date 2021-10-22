@@ -2,9 +2,7 @@ import React, {Component } from 'react';
 import axios from 'axios';
 import {
   BrowserView,
-  MobileView,
-  isBrowser,
-  isMobile
+  MobileView
 } from "react-device-detect";
 
 import Summary2 from './Summary2';
