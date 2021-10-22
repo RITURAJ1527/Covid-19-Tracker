@@ -22,7 +22,7 @@ class Home extends Component{
 		loading : true
 	}
 	async componentDidMount() {
-		const res1 = await axios.get("https://api.covid19india.org/data.json");
+		const res1 = await axios.get("https://data.covid19india.org/data.json");
 		console.log(res1);
 		this.setState({cases_time_series : res1.data.cases_time_series});
 		this.setState({states : res1.data.statewise});
