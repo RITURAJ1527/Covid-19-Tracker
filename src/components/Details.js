@@ -22,7 +22,6 @@ class Details extends Component{
 
 	async componentDidMount() {
 		const res = await axios.get("https://api.covid19api.com/summary");
-		console.log(res);
 		this.setState({countries : res.data.Countries});
 		this.setState({global : res.data.Global});
 		this.setState({currentDate : res.data.Date});
@@ -39,7 +38,6 @@ class Details extends Component{
   	);
   }
   var isMobile = /iPhone|iPod|Android/i.test(navigator.userAgent);
-  console.log(isMobile);
   return (
   	<div>
   		<Navbar/>

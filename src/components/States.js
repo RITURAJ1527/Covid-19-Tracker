@@ -5,11 +5,11 @@ class States extends Component{
   	const {states} = this.props;
   return (
   		<tr>
-  			<td className="Country">{states.state}</td>
-  			<td className="NewConfirmed">{states.active}</td>
-  			<td className="TotalConfirmed">{states.confirmed}</td>
+  			<td className="Country">{states.loc}</td>
+  			<td className="NewConfirmed">{0}</td>
+  			<td className="TotalConfirmed">{states.totalConfirmed}</td>
   			<td className="TotalDeaths">{states.deaths}</td>
-  			<td className="TotalRecovered">{states.recovered}</td>
+  			<td className="TotalRecovered">{states.discharged}</td>
   		</tr>
   );
 }

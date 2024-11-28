@@ -16,16 +16,26 @@ class Home extends Component{
 	state = {
 		cases_time_series: [],
 		states:[],
-		currentDate : null,
-		loading : true
+		lastUpdatedDate : null,
+		loading : true,
+		summary : null
 	}
 	async componentDidMount() {
-		const res1 = await axios.get("https://data.covid19india.org/data.json");
-		console.log(res1);
-		this.setState({cases_time_series : res1.data.cases_time_series});
-		this.setState({states : res1.data.statewise});
-		this.setState({currentDate : res1.data.statewise[0].lastupdatedtime});
-		this.setState({loading : false});
+		try {
+			const res1 = await axios.get("https://api.rootnet.in/covid19-in/stats/latest");
+			const { regional, summary } = res1.data.data;
+			const lastUpdatedDate = res1.data.lastRefreshed;
+			const active = res1.data.data["unofficial-summary"][0]?.active;
+			this.setState({
+			  states: regional,
+			  lastUpdatedDate,
+			  loading: false,
+			  summary: { ...summary, active },
+			});
+		  } catch (error) {
+			console.error("Error fetching data:", error);
+			this.setState({ loading: false });
+		  }
 	}
 
   render(){
@@ -40,7 +50,7 @@ class Home extends Component{
 	return (
 	  	<div>
 	  		<Navbar/>
-	  		<Summary2 summary = {this.state.states[0]} currentDate = {this.state.currentDate}/>	
+	  		<Summary2 summary = {this.state.summary} lastUpdatedDate = {this.state.lastUpdatedDate}/>	
 	    	<table>
 	    		<thead>
 	    			<tr>
@@ -53,7 +63,7 @@ class Home extends Component{
 				</thead>
 				<tbody>
 					{this.state.states.map( state => (
-						<States states = {state} key = {state.state}/>
+						<States states = {state} key = {state.loc}/>
 					))}
 				</tbody>
     		</table>
