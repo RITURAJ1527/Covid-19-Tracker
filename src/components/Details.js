@@ -37,7 +37,7 @@ class Details extends Component{
   		</div>
   	);
   }
-  var isMobile = /iPhone|iPod|Android/i.test(navigator.userAgent);
+//   var isMobile = /iPhone|iPod|Android/i.test(navigator.userAgent);
   return (
   	<div>
   		<Navbar/>
